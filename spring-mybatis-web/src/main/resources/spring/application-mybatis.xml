@@ -13,6 +13,17 @@
     <!-- 配置SqlSessionFactoryBean -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	  <property name="dataSource" ref="dataSource" />
+	  <property name="configLocation" value="classpath:mybatis.xml" />
+	  <property name="mapperLocations" value="classpath:com/example/simples/sm/sqlmap/*.xml" />
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	  <property name="basePackage" value="com.example.simples.sm.dao" />
+	  <!-- 不使用此配置的原因：http://blog.csdn.net/bell2008/article/details/40712215
+	  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	   -->
+	  <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	  <property name="annotationClass" value="com.example.simples.sm.annotation.MybatisMapper" />
 	</bean>
 
 </beans>
