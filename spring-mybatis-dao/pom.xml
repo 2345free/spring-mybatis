@@ -6,4 +6,40 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>spring-mybatis-dao</artifactId>
+  
+  <dependencies>
+  
+  	<dependency>
+	    <groupId>${project.groupId}</groupId>
+	  	<artifactId>spring-mybatis-entity</artifactId>
+	    <version>${project.version}</version>
+	</dependency>
+  
+  	<!-- mybatis -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	</dependency>
+				
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>druid</artifactId>
+	</dependency>
+	
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	</dependency>
+  </dependencies>
+  
 </project>
