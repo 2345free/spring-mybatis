@@ -14,7 +14,7 @@ public class RedisTest {
 
 	public static void main(String[] args) {
 		
-		Jedis jedis = new Jedis("127.0.0.1", 6379); // 不支持集群 MOVED
+		Jedis jedis = new Jedis("192.168.10.114", 6379); // 不支持集群 MOVED
 		String key = "tianyi";
 		String value = jedis.get(key); // 取数据
 		log.info(key + "=" + value);

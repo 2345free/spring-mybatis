@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.StringRedisConnection;
@@ -23,7 +24,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"/spring/context-*.xml"})
+@ContextConfiguration({"/spring/application-*.xml"})
 public class Example {
 
 	// inject the actual template
@@ -35,9 +36,13 @@ public class Example {
 
 	@Resource(name = "redisTemplate")
 	private ListOperations<String, String> listOps; // inject the template as ListOperations
+	
+	@Value("${redis.cluster.servers}")
+	private String servers;
 
 	@Test
 	public void test1() {
+		System.out.println(servers);
 		System.out.println(redisTemplate);
 		System.out.println(stringRedisTemplate);
 	}

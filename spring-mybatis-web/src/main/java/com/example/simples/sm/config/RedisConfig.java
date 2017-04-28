@@ -3,6 +3,7 @@ package com.example.simples.sm.config;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -22,6 +23,9 @@ import redis.clients.jedis.JedisPoolConfig;
 @Configuration
 public class RedisConfig {
 	
+	@Value("${redis.cluster.servers}")
+	private String servers;
+	
 	/**
 	 * Redis Cluster
 	 * @return
@@ -30,9 +34,11 @@ public class RedisConfig {
 	@Bean
 	public JedisCluster jedisCluster(){
 		Set<HostAndPort> nodes=new HashSet<>();
-		nodes.add(new HostAndPort("127.0.0.1",6380));
-		nodes.add(new HostAndPort("127.0.0.1",6381));
-		nodes.add(new HostAndPort("127.0.0.1",6382));
+		for (String server : servers.split(",")) {
+			String[] node=server.split(":");
+			String host=node[0],port=node[1];
+			nodes.add(new HostAndPort(host,Integer.parseInt(port)));
+		}
 		JedisCluster jedisCluster=new JedisCluster(nodes);
 		return jedisCluster;
 	}
