@@ -10,6 +10,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
@@ -26,11 +28,6 @@ public class RedisConfig {
 	@Value("${redis.cluster.servers}")
 	private String servers;
 	
-	/**
-	 * Redis Cluster
-	 * @return
-	 * @author tianyi
-	 */
 	@Bean
 	public JedisCluster jedisCluster(){
 		Set<HostAndPort> nodes=new HashSet<>();
@@ -79,6 +76,8 @@ public class RedisConfig {
 	public RedisTemplate<Object, Object> redisTemplate() {
 		RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setConnectionFactory(jedisConnectionFactory());
+		redisTemplate.setKeySerializer(new StringRedisSerializer());
+		redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
 		return redisTemplate;
 	}
 
@@ -86,6 +85,8 @@ public class RedisConfig {
 	public StringRedisTemplate stringRedisTemplate() {
 		StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
 		stringRedisTemplate.setConnectionFactory(jedisConnectionFactory());
+		stringRedisTemplate.setKeySerializer(new StringRedisSerializer());
+		stringRedisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
 		return stringRedisTemplate;
 	}
 
