@@ -6,7 +6,9 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisNode;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -39,21 +41,22 @@ public class RedisConfig {
 		JedisCluster jedisCluster=new JedisCluster(nodes);
 		return jedisCluster;
 	}
-
+	
+	/**
+	 * require spring-data-redis 1.7+(require spring framework 4.2.8+)
+	 * spring 提供的redis cluster api
+	 * @return
+	 */
 	@Bean
-	public RedisConnectionFactory jedisConnectionFactory() {
-		JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
-		jedisConnectionFactory.setPoolConfig(jedisPoolConfig());
-		jedisConnectionFactory.setHostName("127.0.0.1");
-		jedisConnectionFactory.setPort(6380);
-		return jedisConnectionFactory;
-		// Redis Sentinel HA Cluster
-//		RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration() 
-//				.master("mymaster")
-//				.sentinel("127.0.0.1", 6380) 
-//				.sentinel("127.0.0.1", 6381)
-//				.sentinel("127.0.0.1", 6382);
-//		return new JedisConnectionFactory(sentinelConfig);
+	public RedisClusterConfiguration redisClusterConfiguration(){
+		RedisClusterConfiguration redisClusterConfiguration=new RedisClusterConfiguration();
+		Set<RedisNode> nodes=new HashSet<>();
+		for (String server : servers.split(",")) {
+			String[] node=server.split(":");
+			nodes.add(new RedisNode(node[0],Integer.parseInt(node[1])));
+		}
+		redisClusterConfiguration.setClusterNodes(nodes);
+		return redisClusterConfiguration;
 	}
 	
 	@Bean
@@ -72,6 +75,25 @@ public class RedisConfig {
 		return jedisPoolConfig;
 	}
 
+	@Bean
+	public RedisConnectionFactory jedisConnectionFactory() {
+//		String[] hostInfo=servers.split(",")[0].split(":");
+//		JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
+//		jedisConnectionFactory.setPoolConfig(jedisPoolConfig());
+//		jedisConnectionFactory.setHostName(hostInfo[0]);
+//		jedisConnectionFactory.setPort(Integer.parseInt(hostInfo[1]));
+//		jedisConnectionFactory.setShardInfo(new JedisShardInfo("tcp://"+servers.split(",")[0])); // 适用于redis 2.x版本的分片模式
+//		return jedisConnectionFactory;
+		return new JedisConnectionFactory(redisClusterConfiguration());
+		// Redis Sentinel HA Cluster
+//		RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration() 
+//				.master("mymaster")
+//				.sentinel("127.0.0.1", 6380) 
+//				.sentinel("127.0.0.1", 6381)
+//				.sentinel("127.0.0.1", 6382);
+//		return new JedisConnectionFactory(sentinelConfig);
+	}
+	
 	@Bean
 	public RedisTemplate<Object, Object> redisTemplate() {
 		RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
