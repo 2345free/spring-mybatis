@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.alibaba.fastjson.JSONObject;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring/application-config.xml")
 public class RabbitMQTest {
@@ -16,8 +18,10 @@ public class RabbitMQTest {
 	
 	@Test
 	public void test(){
-		template.convertAndSend("myqueue", "foo");
-		String foo = (String) template.receiveAndConvert("myqueue");
+		JSONObject json=new JSONObject();
+		json.put("key", "哈哈");
+		template.convertAndSend("myqueue",json);
+		JSONObject foo = (JSONObject) template.receiveAndConvert("myqueue");
 		System.out.println(foo);
 	}
 
