@@ -25,8 +25,8 @@ import redis.clients.jedis.JedisPoolConfig;
  * @author tianyi
  *
  */
-@Configuration
-@ImportResource({ "classpath:/spring/context-config.xml" })
+//@Configuration
+//@ImportResource({ "classpath:/spring/context-config.xml" })
 public class RedisConfig {
 	
 //	private static final Logger logger=LoggerFactory.getLogger(RedisConfig.class);
