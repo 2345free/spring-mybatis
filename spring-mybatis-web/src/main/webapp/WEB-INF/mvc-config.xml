@@ -11,6 +11,7 @@
     </context:component-scan>
 
     <mvc:annotation-driven />
+    <context:annotation-config/>
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
