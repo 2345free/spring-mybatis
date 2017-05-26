@@ -20,8 +20,8 @@ public class RabbitMQTest {
 	public void test(){
 		JSONObject json=new JSONObject();
 		json.put("key", "哈哈");
-		template.convertAndSend("myqueue",json);
-		JSONObject foo = (JSONObject) template.receiveAndConvert("myqueue");
+		template.convertAndSend("Q-B5C2GS-02",json);
+		JSONObject foo = (JSONObject) template.receiveAndConvert("Q-B5C2GS-02");
 		System.out.println(foo);
 	}
 

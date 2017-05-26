@@ -5,6 +5,8 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisNode;
@@ -23,22 +25,45 @@ import redis.clients.jedis.JedisPoolConfig;
  * @author tianyi
  *
  */
-//@Configuration
+@Configuration
+@ImportResource({ "classpath:/spring/context-config.xml" })
 public class RedisConfig {
 	
-	@Value("${redis.cluster.servers}")
+//	private static final Logger logger=LoggerFactory.getLogger(RedisConfig.class);
+	
+	@Value("${redis.hosts}")
 	private String servers;
 	
+	/**
+	 * redis 官方 cluster api
+	 * @return
+	 */
 	@Bean
 	public JedisCluster jedisCluster(){
 		Set<HostAndPort> nodes=new HashSet<>();
 		for (String server : servers.split(",")) {
 			String[] node=server.split(":");
-			String host=node[0],port=node[1];
-			nodes.add(new HostAndPort(host,Integer.parseInt(port)));
+			nodes.add(new HostAndPort(node[0],Integer.parseInt(node[1])));
 		}
 		JedisCluster jedisCluster=new JedisCluster(nodes);
+		System.err.println(String.format("jedisCluster [%s] has been initialized...",servers));
 		return jedisCluster;
+	}
+	
+	@Bean
+	public JedisPoolConfig jedisPoolConfig(){
+		JedisPoolConfig jedisPoolConfig=new JedisPoolConfig();
+		jedisPoolConfig.setMaxTotal(100);
+		jedisPoolConfig.setMaxIdle(20);
+		jedisPoolConfig.setMinIdle(10);
+		jedisPoolConfig.setBlockWhenExhausted(true);
+		jedisPoolConfig.setMaxWaitMillis(3000);
+		jedisPoolConfig.setTestOnBorrow(false);
+		jedisPoolConfig.setTestOnReturn(false);
+		jedisPoolConfig.setTestWhileIdle(true);
+		jedisPoolConfig.setMinEvictableIdleTimeMillis(60000);
+		jedisPoolConfig.setNumTestsPerEvictionRun(-1);
+		return jedisPoolConfig;
 	}
 	
 	/**
@@ -59,23 +84,8 @@ public class RedisConfig {
 	}
 	
 	@Bean
-	public JedisPoolConfig jedisPoolConfig(){
-		JedisPoolConfig jedisPoolConfig=new JedisPoolConfig();
-		jedisPoolConfig.setMaxTotal(100);
-		jedisPoolConfig.setMaxIdle(20);
-		jedisPoolConfig.setMinIdle(10);
-		jedisPoolConfig.setBlockWhenExhausted(true);
-		jedisPoolConfig.setMaxWaitMillis(3000);
-		jedisPoolConfig.setTestOnBorrow(false);
-		jedisPoolConfig.setTestOnReturn(false);
-		jedisPoolConfig.setTestWhileIdle(true);
-		jedisPoolConfig.setMinEvictableIdleTimeMillis(60000);
-		jedisPoolConfig.setNumTestsPerEvictionRun(-1);
-		return jedisPoolConfig;
-	}
-
-	@Bean
 	public RedisConnectionFactory jedisConnectionFactory() {
+		return new JedisConnectionFactory(redisClusterConfiguration());
 //		String[] hostInfo=servers.split(",")[0].split(":");
 //		JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
 //		jedisConnectionFactory.setPoolConfig(jedisPoolConfig());
@@ -83,8 +93,7 @@ public class RedisConfig {
 //		jedisConnectionFactory.setPort(Integer.parseInt(hostInfo[1]));
 //		jedisConnectionFactory.setShardInfo(new JedisShardInfo("tcp://"+servers.split(",")[0])); // 适用于redis 2.x版本的分片模式
 //		return jedisConnectionFactory;
-		return new JedisConnectionFactory(redisClusterConfiguration());
-		// Redis Sentinel HA Cluster
+//		 Redis Sentinel HA Cluster
 //		RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration() 
 //				.master("mymaster")
 //				.sentinel("127.0.0.1", 6380) 
@@ -92,7 +101,7 @@ public class RedisConfig {
 //				.sentinel("127.0.0.1", 6382);
 //		return new JedisConnectionFactory(sentinelConfig);
 	}
-	
+
 	@Bean
 	public RedisTemplate<Object, Object> redisTemplate() {
 		RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();

@@ -30,7 +30,7 @@
 		<javaClientGenerator targetPackage="com.example.simples.sm.dao"
 			targetProject="spring-mybatis-dao" type="XMLMAPPER" />
 			
-		<table schema="test" tableName="t_user" domainObjectName="User" 
+		<table schema="test" tableName="t_user" domainObjectName="User" mapperName="UserDao"
 			enableCountByExample="false" 
 			enableUpdateByExample="false" 
 			enableDeleteByExample="false"
