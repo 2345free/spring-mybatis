@@ -96,6 +96,12 @@
 			  <artifactId>spring-rabbit</artifactId>
 			  <version>1.7.2.RELEASE</version>
 			</dependency>
+			<!-- mongodb -->
+		    <dependency>
+		        <groupId>org.mongodb</groupId>
+		        <artifactId>mongodb-driver</artifactId>
+		        <version>3.4.2</version>
+		    </dependency>
 	
 		</dependencies>	
   <build>
