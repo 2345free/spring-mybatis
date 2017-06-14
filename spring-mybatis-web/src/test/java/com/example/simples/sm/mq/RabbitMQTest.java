@@ -1,28 +1,47 @@
 package com.example.simples.sm.mq;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.simples.sm.config.RabbitConfig;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/spring/application-config.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration("/spring/application-config.xml")
 public class RabbitMQTest {
 	
-	@Autowired
-	private AmqpTemplate template;
+//	@Autowired
+//	private AmqpTemplate template;
+	
+	final static String queueName = "ty_test";
 	
 	@Test
 	public void test(){
+		
+		 AmqpTemplate template=ctx.getBean(AmqpTemplate.class);
+		
 		JSONObject json=new JSONObject();
 		json.put("key", "哈哈");
-		template.convertAndSend("Q-B5C2GS-02",json);
-		JSONObject foo = (JSONObject) template.receiveAndConvert("Q-B5C2GS-02");
+		template.convertAndSend(queueName,json);
+		JSONObject foo = (JSONObject) template.receiveAndConvert(queueName);
 		System.out.println(foo);
+	}
+	
+	//--------------------------------------------
+	private AnnotationConfigApplicationContext ctx;
+
+	@Before
+	public void setUp() throws Exception {
+		ctx = new AnnotationConfigApplicationContext(RabbitConfig.class);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		if(ctx!=null)
+		ctx.close();
 	}
 
 }
