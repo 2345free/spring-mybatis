@@ -102,6 +102,12 @@
 		        <artifactId>mongodb-driver</artifactId>
 		        <version>3.4.2</version>
 		    </dependency>
+		    
+		    <!-- canal -->
+			<dependency>
+			    <groupId>com.alibaba.otter</groupId>
+			    <artifactId>canal.client</artifactId>
+			</dependency>
 	
 		</dependencies>	
   <build>
