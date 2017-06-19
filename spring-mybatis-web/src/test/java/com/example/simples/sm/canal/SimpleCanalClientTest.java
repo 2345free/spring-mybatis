@@ -6,7 +6,6 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 
 import com.alibaba.otter.canal.client.CanalConnector;
 import com.alibaba.otter.canal.client.CanalConnectors;
-import com.alibaba.otter.canal.common.utils.AddressUtils;
 
 /**
  * 单机模式的测试例子
