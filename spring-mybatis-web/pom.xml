@@ -107,6 +107,12 @@
 			<dependency>
 			    <groupId>com.alibaba.otter</groupId>
 			    <artifactId>canal.client</artifactId>
+			    <exclusions>
+			    	<exclusion>
+			    		<groupId>org.springframework</groupId>
+			    		<artifactId>spring</artifactId>
+			    	</exclusion>
+			    </exclusions>
 			</dependency>
 	
 		</dependencies>	
