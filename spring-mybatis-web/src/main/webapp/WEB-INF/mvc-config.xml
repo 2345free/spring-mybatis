@@ -12,6 +12,9 @@
 
     <mvc:annotation-driven>
     	<mvc:message-converters register-defaults="true">
+    		<!-- protobuf -->
+    		<bean class="org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter"/>
+    	
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                  <property name="supportedMediaTypes">
                     <list>    
