@@ -9,7 +9,7 @@ public final class AddressBookProtos {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   public interface PersonOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:tutorial.Person)
+      // @@protoc_insertion_point(interface_extends:protobuf.example.Person)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -50,35 +50,35 @@ public final class AddressBookProtos {
         getEmailBytes();
 
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     java.util.List<protobuf.example.AddressBookProtos.Person.PhoneNumber> 
         getPhonesList();
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     protobuf.example.AddressBookProtos.Person.PhoneNumber getPhones(int index);
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     int getPhonesCount();
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     java.util.List<? extends protobuf.example.AddressBookProtos.Person.PhoneNumberOrBuilder> 
         getPhonesOrBuilderList();
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     protobuf.example.AddressBookProtos.Person.PhoneNumberOrBuilder getPhonesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code tutorial.Person}
+   * Protobuf type {@code protobuf.example.Person}
    */
   public static final class Person extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:tutorial.Person)
+      // @@protoc_insertion_point(message_implements:protobuf.example.Person)
       PersonOrBuilder {
     // Use Person.newBuilder() to construct.
     private Person(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -167,12 +167,12 @@ public final class AddressBookProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_descriptor;
+      return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_fieldAccessorTable
+      return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               protobuf.example.AddressBookProtos.Person.class, protobuf.example.AddressBookProtos.Person.Builder.class);
     }
@@ -193,7 +193,7 @@ public final class AddressBookProtos {
     }
 
     /**
-     * Protobuf enum {@code tutorial.Person.PhoneType}
+     * Protobuf enum {@code protobuf.example.Person.PhoneType}
      */
     public enum PhoneType
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -280,11 +280,11 @@ public final class AddressBookProtos {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:tutorial.Person.PhoneType)
+      // @@protoc_insertion_point(enum_scope:protobuf.example.Person.PhoneType)
     }
 
     public interface PhoneNumberOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:tutorial.Person.PhoneNumber)
+        // @@protoc_insertion_point(interface_extends:protobuf.example.Person.PhoneNumber)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -302,20 +302,20 @@ public final class AddressBookProtos {
           getNumberBytes();
 
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+       * <code>optional .protobuf.example.Person.PhoneType type = 2 [default = HOME];</code>
        */
       boolean hasType();
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+       * <code>optional .protobuf.example.Person.PhoneType type = 2 [default = HOME];</code>
        */
       protobuf.example.AddressBookProtos.Person.PhoneType getType();
     }
     /**
-     * Protobuf type {@code tutorial.Person.PhoneNumber}
+     * Protobuf type {@code protobuf.example.Person.PhoneNumber}
      */
     public static final class PhoneNumber extends
         com.google.protobuf.GeneratedMessage implements
-        // @@protoc_insertion_point(message_implements:tutorial.Person.PhoneNumber)
+        // @@protoc_insertion_point(message_implements:protobuf.example.Person.PhoneNumber)
         PhoneNumberOrBuilder {
       // Use PhoneNumber.newBuilder() to construct.
       private PhoneNumber(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -393,12 +393,12 @@ public final class AddressBookProtos {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_descriptor;
+        return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_PhoneNumber_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable
+        return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_PhoneNumber_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 protobuf.example.AddressBookProtos.Person.PhoneNumber.class, protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder.class);
       }
@@ -464,13 +464,13 @@ public final class AddressBookProtos {
       public static final int TYPE_FIELD_NUMBER = 2;
       private protobuf.example.AddressBookProtos.Person.PhoneType type_;
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+       * <code>optional .protobuf.example.Person.PhoneType type = 2 [default = HOME];</code>
        */
       public boolean hasType() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+       * <code>optional .protobuf.example.Person.PhoneType type = 2 [default = HOME];</code>
        */
       public protobuf.example.AddressBookProtos.Person.PhoneType getType() {
         return type_;
@@ -599,20 +599,20 @@ public final class AddressBookProtos {
         return builder;
       }
       /**
-       * Protobuf type {@code tutorial.Person.PhoneNumber}
+       * Protobuf type {@code protobuf.example.Person.PhoneNumber}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:tutorial.Person.PhoneNumber)
+          // @@protoc_insertion_point(builder_implements:protobuf.example.Person.PhoneNumber)
           protobuf.example.AddressBookProtos.Person.PhoneNumberOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_descriptor;
+          return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_PhoneNumber_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable
+          return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_PhoneNumber_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   protobuf.example.AddressBookProtos.Person.PhoneNumber.class, protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder.class);
         }
@@ -650,7 +650,7 @@ public final class AddressBookProtos {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_descriptor;
+          return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_PhoneNumber_descriptor;
         }
 
         public protobuf.example.AddressBookProtos.Person.PhoneNumber getDefaultInstanceForType() {
@@ -810,19 +810,19 @@ public final class AddressBookProtos {
 
         private protobuf.example.AddressBookProtos.Person.PhoneType type_ = protobuf.example.AddressBookProtos.Person.PhoneType.HOME;
         /**
-         * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+         * <code>optional .protobuf.example.Person.PhoneType type = 2 [default = HOME];</code>
          */
         public boolean hasType() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
         /**
-         * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+         * <code>optional .protobuf.example.Person.PhoneType type = 2 [default = HOME];</code>
          */
         public protobuf.example.AddressBookProtos.Person.PhoneType getType() {
           return type_;
         }
         /**
-         * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+         * <code>optional .protobuf.example.Person.PhoneType type = 2 [default = HOME];</code>
          */
         public Builder setType(protobuf.example.AddressBookProtos.Person.PhoneType value) {
           if (value == null) {
@@ -834,7 +834,7 @@ public final class AddressBookProtos {
           return this;
         }
         /**
-         * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+         * <code>optional .protobuf.example.Person.PhoneType type = 2 [default = HOME];</code>
          */
         public Builder clearType() {
           bitField0_ = (bitField0_ & ~0x00000002);
@@ -843,7 +843,7 @@ public final class AddressBookProtos {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:tutorial.Person.PhoneNumber)
+        // @@protoc_insertion_point(builder_scope:protobuf.example.Person.PhoneNumber)
       }
 
       static {
@@ -851,7 +851,7 @@ public final class AddressBookProtos {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:tutorial.Person.PhoneNumber)
+      // @@protoc_insertion_point(class_scope:protobuf.example.Person.PhoneNumber)
     }
 
     private int bitField0_;
@@ -957,32 +957,32 @@ public final class AddressBookProtos {
     public static final int PHONES_FIELD_NUMBER = 4;
     private java.util.List<protobuf.example.AddressBookProtos.Person.PhoneNumber> phones_;
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     public java.util.List<protobuf.example.AddressBookProtos.Person.PhoneNumber> getPhonesList() {
       return phones_;
     }
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     public java.util.List<? extends protobuf.example.AddressBookProtos.Person.PhoneNumberOrBuilder> 
         getPhonesOrBuilderList() {
       return phones_;
     }
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     public int getPhonesCount() {
       return phones_.size();
     }
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     public protobuf.example.AddressBookProtos.Person.PhoneNumber getPhones(int index) {
       return phones_.get(index);
     }
     /**
-     * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
      */
     public protobuf.example.AddressBookProtos.Person.PhoneNumberOrBuilder getPhonesOrBuilder(
         int index) {
@@ -1138,20 +1138,20 @@ public final class AddressBookProtos {
       return builder;
     }
     /**
-     * Protobuf type {@code tutorial.Person}
+     * Protobuf type {@code protobuf.example.Person}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:tutorial.Person)
+        // @@protoc_insertion_point(builder_implements:protobuf.example.Person)
         protobuf.example.AddressBookProtos.PersonOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_descriptor;
+        return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_fieldAccessorTable
+        return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 protobuf.example.AddressBookProtos.Person.class, protobuf.example.AddressBookProtos.Person.Builder.class);
       }
@@ -1198,7 +1198,7 @@ public final class AddressBookProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return protobuf.example.AddressBookProtos.internal_static_tutorial_Person_descriptor;
+        return protobuf.example.AddressBookProtos.internal_static_protobuf_example_Person_descriptor;
       }
 
       public protobuf.example.AddressBookProtos.Person getDefaultInstanceForType() {
@@ -1531,7 +1531,7 @@ public final class AddressBookProtos {
           protobuf.example.AddressBookProtos.Person.PhoneNumber, protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder, protobuf.example.AddressBookProtos.Person.PhoneNumberOrBuilder> phonesBuilder_;
 
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public java.util.List<protobuf.example.AddressBookProtos.Person.PhoneNumber> getPhonesList() {
         if (phonesBuilder_ == null) {
@@ -1541,7 +1541,7 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public int getPhonesCount() {
         if (phonesBuilder_ == null) {
@@ -1551,7 +1551,7 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public protobuf.example.AddressBookProtos.Person.PhoneNumber getPhones(int index) {
         if (phonesBuilder_ == null) {
@@ -1561,7 +1561,7 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder setPhones(
           int index, protobuf.example.AddressBookProtos.Person.PhoneNumber value) {
@@ -1578,7 +1578,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder setPhones(
           int index, protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder builderForValue) {
@@ -1592,7 +1592,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder addPhones(protobuf.example.AddressBookProtos.Person.PhoneNumber value) {
         if (phonesBuilder_ == null) {
@@ -1608,7 +1608,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder addPhones(
           int index, protobuf.example.AddressBookProtos.Person.PhoneNumber value) {
@@ -1625,7 +1625,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder addPhones(
           protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder builderForValue) {
@@ -1639,7 +1639,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder addPhones(
           int index, protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder builderForValue) {
@@ -1653,7 +1653,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder addAllPhones(
           java.lang.Iterable<? extends protobuf.example.AddressBookProtos.Person.PhoneNumber> values) {
@@ -1668,7 +1668,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder clearPhones() {
         if (phonesBuilder_ == null) {
@@ -1681,7 +1681,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public Builder removePhones(int index) {
         if (phonesBuilder_ == null) {
@@ -1694,14 +1694,14 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder getPhonesBuilder(
           int index) {
         return getPhonesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public protobuf.example.AddressBookProtos.Person.PhoneNumberOrBuilder getPhonesOrBuilder(
           int index) {
@@ -1711,7 +1711,7 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public java.util.List<? extends protobuf.example.AddressBookProtos.Person.PhoneNumberOrBuilder> 
            getPhonesOrBuilderList() {
@@ -1722,14 +1722,14 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder addPhonesBuilder() {
         return getPhonesFieldBuilder().addBuilder(
             protobuf.example.AddressBookProtos.Person.PhoneNumber.getDefaultInstance());
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder addPhonesBuilder(
           int index) {
@@ -1737,7 +1737,7 @@ public final class AddressBookProtos {
             index, protobuf.example.AddressBookProtos.Person.PhoneNumber.getDefaultInstance());
       }
       /**
-       * <code>repeated .tutorial.Person.PhoneNumber phones = 4;</code>
+       * <code>repeated .protobuf.example.Person.PhoneNumber phones = 4;</code>
        */
       public java.util.List<protobuf.example.AddressBookProtos.Person.PhoneNumber.Builder> 
            getPhonesBuilderList() {
@@ -1758,7 +1758,7 @@ public final class AddressBookProtos {
         return phonesBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:tutorial.Person)
+      // @@protoc_insertion_point(builder_scope:protobuf.example.Person)
     }
 
     static {
@@ -1766,43 +1766,43 @@ public final class AddressBookProtos {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:tutorial.Person)
+    // @@protoc_insertion_point(class_scope:protobuf.example.Person)
   }
 
   public interface AddressBookOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:tutorial.AddressBook)
+      // @@protoc_insertion_point(interface_extends:protobuf.example.AddressBook)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     java.util.List<protobuf.example.AddressBookProtos.Person> 
         getPeopleList();
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     protobuf.example.AddressBookProtos.Person getPeople(int index);
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     int getPeopleCount();
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     java.util.List<? extends protobuf.example.AddressBookProtos.PersonOrBuilder> 
         getPeopleOrBuilderList();
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     protobuf.example.AddressBookProtos.PersonOrBuilder getPeopleOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code tutorial.AddressBook}
+   * Protobuf type {@code protobuf.example.AddressBook}
    */
   public static final class AddressBook extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:tutorial.AddressBook)
+      // @@protoc_insertion_point(message_implements:protobuf.example.AddressBook)
       AddressBookOrBuilder {
     // Use AddressBook.newBuilder() to construct.
     private AddressBook(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -1874,12 +1874,12 @@ public final class AddressBookProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return protobuf.example.AddressBookProtos.internal_static_tutorial_AddressBook_descriptor;
+      return protobuf.example.AddressBookProtos.internal_static_protobuf_example_AddressBook_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return protobuf.example.AddressBookProtos.internal_static_tutorial_AddressBook_fieldAccessorTable
+      return protobuf.example.AddressBookProtos.internal_static_protobuf_example_AddressBook_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               protobuf.example.AddressBookProtos.AddressBook.class, protobuf.example.AddressBookProtos.AddressBook.Builder.class);
     }
@@ -1902,32 +1902,32 @@ public final class AddressBookProtos {
     public static final int PEOPLE_FIELD_NUMBER = 1;
     private java.util.List<protobuf.example.AddressBookProtos.Person> people_;
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     public java.util.List<protobuf.example.AddressBookProtos.Person> getPeopleList() {
       return people_;
     }
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     public java.util.List<? extends protobuf.example.AddressBookProtos.PersonOrBuilder> 
         getPeopleOrBuilderList() {
       return people_;
     }
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     public int getPeopleCount() {
       return people_.size();
     }
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     public protobuf.example.AddressBookProtos.Person getPeople(int index) {
       return people_.get(index);
     }
     /**
-     * <code>repeated .tutorial.Person people = 1;</code>
+     * <code>repeated .protobuf.example.Person people = 1;</code>
      */
     public protobuf.example.AddressBookProtos.PersonOrBuilder getPeopleOrBuilder(
         int index) {
@@ -2051,20 +2051,20 @@ public final class AddressBookProtos {
       return builder;
     }
     /**
-     * Protobuf type {@code tutorial.AddressBook}
+     * Protobuf type {@code protobuf.example.AddressBook}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:tutorial.AddressBook)
+        // @@protoc_insertion_point(builder_implements:protobuf.example.AddressBook)
         protobuf.example.AddressBookProtos.AddressBookOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return protobuf.example.AddressBookProtos.internal_static_tutorial_AddressBook_descriptor;
+        return protobuf.example.AddressBookProtos.internal_static_protobuf_example_AddressBook_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return protobuf.example.AddressBookProtos.internal_static_tutorial_AddressBook_fieldAccessorTable
+        return protobuf.example.AddressBookProtos.internal_static_protobuf_example_AddressBook_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 protobuf.example.AddressBookProtos.AddressBook.class, protobuf.example.AddressBookProtos.AddressBook.Builder.class);
       }
@@ -2105,7 +2105,7 @@ public final class AddressBookProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return protobuf.example.AddressBookProtos.internal_static_tutorial_AddressBook_descriptor;
+        return protobuf.example.AddressBookProtos.internal_static_protobuf_example_AddressBook_descriptor;
       }
 
       public protobuf.example.AddressBookProtos.AddressBook getDefaultInstanceForType() {
@@ -2219,7 +2219,7 @@ public final class AddressBookProtos {
           protobuf.example.AddressBookProtos.Person, protobuf.example.AddressBookProtos.Person.Builder, protobuf.example.AddressBookProtos.PersonOrBuilder> peopleBuilder_;
 
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public java.util.List<protobuf.example.AddressBookProtos.Person> getPeopleList() {
         if (peopleBuilder_ == null) {
@@ -2229,7 +2229,7 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public int getPeopleCount() {
         if (peopleBuilder_ == null) {
@@ -2239,7 +2239,7 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public protobuf.example.AddressBookProtos.Person getPeople(int index) {
         if (peopleBuilder_ == null) {
@@ -2249,7 +2249,7 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder setPeople(
           int index, protobuf.example.AddressBookProtos.Person value) {
@@ -2266,7 +2266,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder setPeople(
           int index, protobuf.example.AddressBookProtos.Person.Builder builderForValue) {
@@ -2280,7 +2280,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder addPeople(protobuf.example.AddressBookProtos.Person value) {
         if (peopleBuilder_ == null) {
@@ -2296,7 +2296,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder addPeople(
           int index, protobuf.example.AddressBookProtos.Person value) {
@@ -2313,7 +2313,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder addPeople(
           protobuf.example.AddressBookProtos.Person.Builder builderForValue) {
@@ -2327,7 +2327,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder addPeople(
           int index, protobuf.example.AddressBookProtos.Person.Builder builderForValue) {
@@ -2341,7 +2341,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder addAllPeople(
           java.lang.Iterable<? extends protobuf.example.AddressBookProtos.Person> values) {
@@ -2356,7 +2356,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder clearPeople() {
         if (peopleBuilder_ == null) {
@@ -2369,7 +2369,7 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public Builder removePeople(int index) {
         if (peopleBuilder_ == null) {
@@ -2382,14 +2382,14 @@ public final class AddressBookProtos {
         return this;
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public protobuf.example.AddressBookProtos.Person.Builder getPeopleBuilder(
           int index) {
         return getPeopleFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public protobuf.example.AddressBookProtos.PersonOrBuilder getPeopleOrBuilder(
           int index) {
@@ -2399,7 +2399,7 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public java.util.List<? extends protobuf.example.AddressBookProtos.PersonOrBuilder> 
            getPeopleOrBuilderList() {
@@ -2410,14 +2410,14 @@ public final class AddressBookProtos {
         }
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public protobuf.example.AddressBookProtos.Person.Builder addPeopleBuilder() {
         return getPeopleFieldBuilder().addBuilder(
             protobuf.example.AddressBookProtos.Person.getDefaultInstance());
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public protobuf.example.AddressBookProtos.Person.Builder addPeopleBuilder(
           int index) {
@@ -2425,7 +2425,7 @@ public final class AddressBookProtos {
             index, protobuf.example.AddressBookProtos.Person.getDefaultInstance());
       }
       /**
-       * <code>repeated .tutorial.Person people = 1;</code>
+       * <code>repeated .protobuf.example.Person people = 1;</code>
        */
       public java.util.List<protobuf.example.AddressBookProtos.Person.Builder> 
            getPeopleBuilderList() {
@@ -2446,7 +2446,7 @@ public final class AddressBookProtos {
         return peopleBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:tutorial.AddressBook)
+      // @@protoc_insertion_point(builder_scope:protobuf.example.AddressBook)
     }
 
     static {
@@ -2454,24 +2454,24 @@ public final class AddressBookProtos {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:tutorial.AddressBook)
+    // @@protoc_insertion_point(class_scope:protobuf.example.AddressBook)
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_tutorial_Person_descriptor;
+    internal_static_protobuf_example_Person_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_tutorial_Person_fieldAccessorTable;
+      internal_static_protobuf_example_Person_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_tutorial_Person_PhoneNumber_descriptor;
+    internal_static_protobuf_example_Person_PhoneNumber_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable;
+      internal_static_protobuf_example_Person_PhoneNumber_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_tutorial_AddressBook_descriptor;
+    internal_static_protobuf_example_AddressBook_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_tutorial_AddressBook_fieldAccessorTable;
+      internal_static_protobuf_example_AddressBook_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2482,15 +2482,15 @@ public final class AddressBookProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\'test/protobuf/example/AddressBook.prot" +
-      "o\022\010tutorial\"\333\001\n\006Person\022\014\n\004name\030\001 \002(\t\022\n\n\002" +
-      "id\030\002 \002(\005\022\r\n\005email\030\003 \001(\t\022,\n\006phones\030\004 \003(\0132" +
-      "\034.tutorial.Person.PhoneNumber\032M\n\013PhoneNu" +
-      "mber\022\016\n\006number\030\001 \002(\t\022.\n\004type\030\002 \001(\0162\032.tut" +
-      "orial.Person.PhoneType:\004HOME\"+\n\tPhoneTyp" +
-      "e\022\n\n\006MOBILE\020\000\022\010\n\004HOME\020\001\022\010\n\004WORK\020\002\"/\n\013Add" +
-      "ressBook\022 \n\006people\030\001 \003(\0132\020.tutorial.Pers" +
-      "onB%\n\020protobuf.exampleB\021AddressBookProto" +
-      "s"
+      "o\022\020protobuf.example\"\353\001\n\006Person\022\014\n\004name\030\001" +
+      " \002(\t\022\n\n\002id\030\002 \002(\005\022\r\n\005email\030\003 \001(\t\0224\n\006phone" +
+      "s\030\004 \003(\0132$.protobuf.example.Person.PhoneN" +
+      "umber\032U\n\013PhoneNumber\022\016\n\006number\030\001 \002(\t\0226\n\004" +
+      "type\030\002 \001(\0162\".protobuf.example.Person.Pho" +
+      "neType:\004HOME\"+\n\tPhoneType\022\n\n\006MOBILE\020\000\022\010\n" +
+      "\004HOME\020\001\022\010\n\004WORK\020\002\"7\n\013AddressBook\022(\n\006peop" +
+      "le\030\001 \003(\0132\030.protobuf.example.PersonB%\n\020pr" +
+      "otobuf.exampleB\021AddressBookProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2504,23 +2504,23 @@ public final class AddressBookProtos {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_tutorial_Person_descriptor =
+    internal_static_protobuf_example_Person_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_tutorial_Person_fieldAccessorTable = new
+    internal_static_protobuf_example_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_tutorial_Person_descriptor,
+        internal_static_protobuf_example_Person_descriptor,
         new java.lang.String[] { "Name", "Id", "Email", "Phones", });
-    internal_static_tutorial_Person_PhoneNumber_descriptor =
-      internal_static_tutorial_Person_descriptor.getNestedTypes().get(0);
-    internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable = new
+    internal_static_protobuf_example_Person_PhoneNumber_descriptor =
+      internal_static_protobuf_example_Person_descriptor.getNestedTypes().get(0);
+    internal_static_protobuf_example_Person_PhoneNumber_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_tutorial_Person_PhoneNumber_descriptor,
+        internal_static_protobuf_example_Person_PhoneNumber_descriptor,
         new java.lang.String[] { "Number", "Type", });
-    internal_static_tutorial_AddressBook_descriptor =
+    internal_static_protobuf_example_AddressBook_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_tutorial_AddressBook_fieldAccessorTable = new
+    internal_static_protobuf_example_AddressBook_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_tutorial_AddressBook_descriptor,
+        internal_static_protobuf_example_AddressBook_descriptor,
         new java.lang.String[] { "People", });
   }
 
