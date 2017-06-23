@@ -213,4 +213,11 @@
 		</snapshotRepository>
 	</distributionManagement>
 	
+	<pluginRepositories>
+        <pluginRepository>
+            <id>dtrott</id>
+            <url>http://maven.davidtrott.com/repository</url>
+        </pluginRepository>
+    </pluginRepositories>
+	
 </project>
