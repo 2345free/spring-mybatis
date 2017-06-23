@@ -1,4 +1,6 @@
 package service.client;
+
+import org.apache.thrift.TApplicationException;
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
@@ -22,12 +24,18 @@ public class HelloServiceClient {
 			TProtocol protocol = new TBinaryProtocol(transport);
 			Hello.Client client = new Hello.Client(protocol);
 			// 调用服务的 helloVoid 方法
-			client.helloVoid();
+			// client.helloVoid();
+			client.helloNull();
+			// client.helloBoolean(true);
+			// client.helloInt(1);
 			transport.close();
 		} catch (TTransportException e) {
 			e.printStackTrace();
 		} catch (TException e) {
-			e.printStackTrace();
+			if (e instanceof TApplicationException
+					&& ((TApplicationException) e).getType() == TApplicationException.MISSING_RESULT) {
+				System.out.println("The result of helloNull function is NULL");
+			}
 		}
 	}
 }
