@@ -196,6 +196,7 @@
     	<module>spring-mybatis-web</module>
     	<module>spring-mybatis-dao</module>
     	<module>spring-mybatis-service</module>
+    	<module>spring-mybatis-service-impl</module>
     	<module>spring-mybatis-common</module>
 	</modules>
 	
