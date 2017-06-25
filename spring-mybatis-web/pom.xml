@@ -166,7 +166,11 @@
                 <target>1.7</target>
             </configuration>
         </plugin>
-		<!-- thrift -->
+				
+    </plugins>
+    <pluginManagement>
+    	<plugins>
+    		<!-- thrift -->
 		<plugin>
 		    <groupId>org.apache.thrift.tools</groupId>
 		    <artifactId>maven-thrift-plugin</artifactId>
@@ -174,7 +178,7 @@
 		    <configuration>
                 <thriftExecutable>${project.basedir}/bin/thrift.exe</thriftExecutable>
                 <generator>java</generator>
-                <outputDirectory>${project.basedir}/src/test/java</outputDirectory>
+                <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
                 <thriftSourceRoot>${project.basedir}/src/test/thrift</thriftSourceRoot>
             </configuration>
             <executions>
@@ -194,42 +198,6 @@
                 </execution>
             </executions>
 		</plugin>
-				
-    </plugins>
-    <pluginManagement>
-    	<plugins>
-    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-    		<plugin>
-    			<groupId>org.eclipse.m2e</groupId>
-    			<artifactId>lifecycle-mapping</artifactId>
-    			<version>1.0.0</version>
-    			<configuration>
-    				<lifecycleMappingMetadata>
-    					<pluginExecutions>
-    						<pluginExecution>
-    							<pluginExecutionFilter>
-    								<groupId>
-    									org.apache.thrift.tools
-    								</groupId>
-    								<artifactId>
-    									maven-thrift-plugin
-    								</artifactId>
-    								<versionRange>
-    									[0.1.11,)
-    								</versionRange>
-    								<goals>
-    									<goal>compile</goal>
-    									<goal>testCompile</goal>
-    								</goals>
-    							</pluginExecutionFilter>
-    							<action>
-    								<ignore></ignore>
-    							</action>
-    						</pluginExecution>
-    					</pluginExecutions>
-    				</lifecycleMappingMetadata>
-    			</configuration>
-    		</plugin>
     	</plugins>
     </pluginManagement>
   </build>
