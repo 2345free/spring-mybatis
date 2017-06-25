@@ -8,6 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>spring-mybatis-entity</artifactId>
+  <packaging>jar</packaging>
   <name>spring-mybatis-entity</name>
   <url>http://maven.apache.org</url>
   <properties>
