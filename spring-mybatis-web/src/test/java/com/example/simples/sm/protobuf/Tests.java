@@ -13,7 +13,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
 
 import com.example.simples.sm.BaseTest;
-import com.example.tutorial.AddressBookProtos.Person;
+
+import protobuf.example.AddressBookProtos.Person;
 
 public class Tests extends BaseTest {
 	
