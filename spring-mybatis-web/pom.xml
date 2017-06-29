@@ -167,6 +167,7 @@
 			  <artifactId>libthrift</artifactId>
 			  <version>0.10.0</version>
 			</dependency>
+
 			
 		</dependencies>	
   <build>
