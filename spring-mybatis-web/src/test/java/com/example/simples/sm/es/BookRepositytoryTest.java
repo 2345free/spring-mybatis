@@ -5,13 +5,17 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.example.simples.sm.BaseTest;
 import com.example.simples.sm.es.document.Book;
 import com.example.simples.sm.es.repositytory.BookRepositytory;
 
-public class BookRepositytoryTest extends BaseTest {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:/spring/application-elasticsearch.xml")
+public class BookRepositytoryTest {
 
 	@Autowired
 	private BookRepositytory bookRepositytory;
@@ -24,17 +28,17 @@ public class BookRepositytoryTest extends BaseTest {
 		book.setName("Spring Data Elasticsearch");
 		book.setPrice(13L);
 		// book.setVersion(System.currentTimeMillis());
-		bookRepositytory.save(book);
+		this.bookRepositytory.save(book);
 		// lets try to search same record in elasticsearch
-		Book indexedBook = bookRepositytory.findOne(book.getId());
+		Book indexedBook = this.bookRepositytory.findOne(book.getId());
 		assertThat(indexedBook, is(notNullValue()));
 		assertThat(indexedBook.getId(), is(book.getId()));
 	}
 
 	@Test
 	public void countBook() {
-		long count = bookRepositytory.count();
-		assertThat(count, is(2L));
+		long count = this.bookRepositytory.count();
+		assertThat(count, is(1L));
 	}
 
 }
