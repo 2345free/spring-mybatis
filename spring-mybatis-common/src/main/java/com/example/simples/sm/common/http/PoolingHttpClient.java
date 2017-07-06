@@ -26,6 +26,10 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.impl.conn.SystemDefaultDnsResolver;
 import org.apache.http.impl.io.DefaultHttpRequestWriterFactory;
 
+/**
+ * @author luoxx
+ *
+ */
 public class PoolingHttpClient {
 
 	private static PoolingHttpClientConnectionManager manager = null;
