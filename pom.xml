@@ -76,6 +76,13 @@
 				<artifactId>spring-tx</artifactId>
 				<version>${spring-framework.version}</version>
 			</dependency>
+			
+			<!-- Spring JMS -->
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-jms</artifactId>
+			    <version>${spring-framework.version}</version>
+			</dependency>
 	
 			<!-- Logging with SLF4J & LogBack -->
 			<dependency>
