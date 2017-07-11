@@ -18,7 +18,7 @@ public class ExampleListener {
 			value = @Queue(value = "ty_test", durable = "true", autoDelete = "false", exclusive = "true"),
 			exchange = @Exchange(value = "tyExchange", ignoreDeclarationExceptions = "true"), key = "tyKey"), containerFactory = "rabbitListenerContainerFactory", admin = "amqpAdmin"
 			)
-	public void processOrder(Message message) throws Exception {
+	public void receive(Message message) throws Exception {
 		String msg = new String(message.getBody(), "UTF-8");
 		logger.info("收到消息:[{}]", msg);
 		System.err.format("收到消息:[%s]\n", msg);

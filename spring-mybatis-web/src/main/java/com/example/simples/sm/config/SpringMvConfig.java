@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 @Configuration
-public class SpringMvConfig extends WebMvcConfigurerAdapter{
+public class SpringMvConfig extends WebMvcConfigurationSupport {
 
 	@Bean(name="config")
 	public Properties config() throws IOException{
