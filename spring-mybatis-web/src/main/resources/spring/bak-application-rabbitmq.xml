@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/rabbit
+    http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd">
+
+	<description>rabbitmq 连接服务配置</description>
+
+	<!-- 连接配置 -->
+	<rabbit:connection-factory id="rbConnectionFactory"
+		host="${rabbit.host}" username="${rabbit.username}" password="${rabbit.password}"
+		port="${rabbit.port}" virtual-host="${rabbit.vhost}" />
+	<rabbit:admin connection-factory="rbConnectionFactory" />
+
+	<!-- queue -->
+	<rabbit:queue id="paidQueue" name="${rabbit.queueName}" durable="true" auto-delete="false" exclusive="false" />
+	
+	<!--exchange -->
+	<rabbit:direct-exchange id="paidExchange" name="${rabbit.exchange}"
+		durable="true" auto-delete="false" >
+		<rabbit:bindings>
+			<rabbit:binding queue="${rabbit.queueName}" key="${rabbit.routingKey}" />
+		</rabbit:bindings>
+	</rabbit:direct-exchange>
+
+	<!-- spring template声明 -->
+	<rabbit:template id="amqpTemplate" queue="paidQueue" exchange="${rabbit.exchange}" routing-key="${rabbit.routingKey}" 
+		connection-factory="rbConnectionFactory" message-converter="jsonMessageConverter" />
+
+	<!-- 消息对象json转换类 -->
+	<bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter" />
+
+</beans>
+

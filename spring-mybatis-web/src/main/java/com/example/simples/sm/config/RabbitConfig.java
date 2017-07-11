@@ -81,7 +81,7 @@ public class RabbitConfig {
 	// container.setConnectionFactory(rabbitConnectionFactory());
 	// container.setQueueNames(new String[] { "ty_test" });
 	// container.setConcurrentConsumers(5);
-	// // container.setMessageListener(exampleListener());
+	// container.setMessageListener(exampleListener());
 	// return container;
 	// }
 
