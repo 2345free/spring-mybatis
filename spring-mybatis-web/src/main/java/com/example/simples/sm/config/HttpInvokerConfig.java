@@ -18,12 +18,4 @@ public class HttpInvokerConfig {
 		return exporter;
 	}
 
-	// @Bean
-	// public HttpInvokerProxyFactoryBean testDemoService() {
-	// HttpInvokerProxyFactoryBean factory = new HttpInvokerProxyFactoryBean();
-	// factory.setServiceInterface(DemoService.class);
-	// factory.setServiceUrl("http://localhost/test.demo.service");
-	// return factory;
-	// }
-
 }

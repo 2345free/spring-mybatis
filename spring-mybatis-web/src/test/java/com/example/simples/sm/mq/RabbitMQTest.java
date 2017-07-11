@@ -12,24 +12,24 @@ import com.example.simples.sm.config.RabbitConfig;
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration("/spring/application-config.xml")
 public class RabbitMQTest {
-	
-//	@Autowired
-//	private AmqpTemplate template;
-	
+
+	//	@Autowired
+	//	private AmqpTemplate template;
+
 	final static String queueName = "ty_test";
-	
+
 	@Test
 	public void test(){
-		
-		 AmqpTemplate template=ctx.getBean(AmqpTemplate.class);
-		
+
+		AmqpTemplate template=ctx.getBean(AmqpTemplate.class);
+
 		JSONObject json=new JSONObject();
 		json.put("key", "哈哈");
-		template.convertAndSend(queueName,json);
-		JSONObject foo = (JSONObject) template.receiveAndConvert(queueName);
-		System.out.println(foo);
+		template.convertAndSend(queueName, json);
+		// JSONObject foo = (JSONObject) template.receiveAndConvert(queueName);
+		// System.out.println(foo);
 	}
-	
+
 	//--------------------------------------------
 	private AnnotationConfigApplicationContext ctx;
 
@@ -41,7 +41,7 @@ public class RabbitMQTest {
 	@After
 	public void tearDown() throws Exception {
 		if(ctx!=null)
-		ctx.close();
+			ctx.close();
 	}
 
 }
