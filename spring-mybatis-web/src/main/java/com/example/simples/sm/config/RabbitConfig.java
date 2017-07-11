@@ -9,6 +9,7 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -47,6 +48,12 @@ public class RabbitConfig {
 		return new RabbitAdmin(rabbitConnectionFactory());
 	}
 
+	@Bean // Serialize message content to json using TextMessage
+	public MessageConverter jacksonMessageConverter() {
+		Jackson2JsonMessageConverter converter = new Jackson2JsonMessageConverter();
+		return converter;
+	}
+
 	@Bean
 	public RabbitTemplate rabbitTemplate() {
 		RabbitTemplate rabbitTemplate = new RabbitTemplate(rabbitConnectionFactory());
@@ -58,8 +65,9 @@ public class RabbitConfig {
 		backOffPolicy.setMaxInterval(10000);
 		retryTemplate.setBackOffPolicy(backOffPolicy);
 		rabbitTemplate.setRetryTemplate(retryTemplate);
+		rabbitTemplate.setReceiveTimeout(10 * 1000);
 
-		rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+		rabbitTemplate.setMessageConverter(jacksonMessageConverter());
 
 		return rabbitTemplate;
 	}
@@ -89,6 +97,7 @@ public class RabbitConfig {
 	public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory() {
 		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
 		factory.setConnectionFactory(rabbitConnectionFactory());
+		factory.setMessageConverter(jacksonMessageConverter());
 		factory.setConcurrentConsumers(5);
 		factory.setIdleEventInterval(60000L);
 		return factory;

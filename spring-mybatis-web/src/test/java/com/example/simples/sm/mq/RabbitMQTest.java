@@ -5,8 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.jms.core.JmsTemplate;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.simples.sm.config.ActivemqConfig;
 import com.example.simples.sm.config.RabbitConfig;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -16,16 +18,30 @@ public class RabbitMQTest {
 	//	@Autowired
 	//	private AmqpTemplate template;
 
-	final static String queueName = "ty_test";
-
 	@Test
 	public void test(){
+
+		ctx = new AnnotationConfigApplicationContext(RabbitConfig.class);
 
 		AmqpTemplate template=ctx.getBean(AmqpTemplate.class);
 
 		JSONObject json=new JSONObject();
 		json.put("key", "哈哈");
-		template.convertAndSend(queueName, json);
+		template.convertAndSend("ty_test", json);
+		// JSONObject foo = (JSONObject) template.receiveAndConvert(queueName);
+		// System.out.println(foo);
+	}
+
+	@Test
+	public void test2() {
+
+		ctx = new AnnotationConfigApplicationContext(ActivemqConfig.class);
+
+		JmsTemplate template = ctx.getBean(JmsTemplate.class);
+
+		JSONObject json = new JSONObject();
+		json.put("key", "哈哈111");
+		template.convertAndSend("mailbox", json);
 		// JSONObject foo = (JSONObject) template.receiveAndConvert(queueName);
 		// System.out.println(foo);
 	}
@@ -35,7 +51,7 @@ public class RabbitMQTest {
 
 	@Before
 	public void setUp() throws Exception {
-		ctx = new AnnotationConfigApplicationContext(RabbitConfig.class);
+
 	}
 
 	@After
