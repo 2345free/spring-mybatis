@@ -30,6 +30,18 @@
          		<groupId>org.apache.httpcomponents</groupId>
          		<artifactId>httpcore</artifactId>
          	</exclusion>
+	    	<exclusion>
+	    		<groupId>com.google.guava</groupId>
+	    		<artifactId>guava</artifactId>
+	    	</exclusion>
+	    	<exclusion>
+	    		<groupId>org.apache.curator</groupId>
+	    		<artifactId>curator-framework</artifactId>
+	    	</exclusion>
+	    	<exclusion>
+	    		<groupId>org.apache.curator</groupId>
+	    		<artifactId>curator-client</artifactId>
+	    	</exclusion>
          </exclusions>
 	</dependency>
 	

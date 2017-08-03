@@ -3,12 +3,11 @@ package com.example.simples.sm.mongo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.example.simples.sm.mongo.document.Person;
 import com.example.simples.sm.mongo.repository.PersonRepository;
 
-@Service
+//@Service
 public class MongoDemoService {
 
 	private final PersonRepository repository;

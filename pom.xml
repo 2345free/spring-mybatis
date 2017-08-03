@@ -41,6 +41,9 @@
 		
 		<!-- plugins -->
 		<compiler.version>3.6.1</compiler.version>
+		
+		<elastic-job.version>2.1.5</elastic-job.version>
+		<curator.version>3.3.0</curator.version>
 
 	</properties>
 	
