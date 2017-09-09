@@ -12,16 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExampleListener {
 
-	private static final Logger logger = LoggerFactory.getLogger(ExampleListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExampleListener.class);
 
-	@RabbitListener(bindings = @QueueBinding(
-			value = @Queue(value = "ty_test", durable = "true", autoDelete = "false", exclusive = "true"),
-			exchange = @Exchange(value = "tyExchange", ignoreDeclarationExceptions = "true"), key = "tyKey"), containerFactory = "rabbitListenerContainerFactory", admin = "amqpAdmin"
-			)
-	public void receive(Message message) throws Exception {
-		String msg = new String(message.getBody(), "UTF-8");
-		logger.info("收到消息:[{}]", msg);
-		System.err.format("收到消息:[%s]\n", msg);
-	}
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(value = "ty_test", durable = "true", autoDelete = "false", exclusive = "true"),
+            exchange = @Exchange(value = "tyExchange", ignoreDeclarationExceptions = "true"), key = "tyKey"), containerFactory = "rabbitListenerContainerFactory", admin = "amqpAdmin"
+    )
+    public void receive(Message message) throws Exception {
+        String msg = new String(message.getBody(), "UTF-8");
+        logger.info("收到消息:[{}]", msg);
+        System.err.format("收到消息:[%s]\n", msg);
+    }
 
 }

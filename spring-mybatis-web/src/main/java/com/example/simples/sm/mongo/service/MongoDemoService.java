@@ -1,39 +1,38 @@
 package com.example.simples.sm.mongo.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.example.simples.sm.mongo.document.Person;
 import com.example.simples.sm.mongo.repository.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 //@Service
 public class MongoDemoService {
 
-	private final PersonRepository repository;
+    private final PersonRepository repository;
 
-	@Autowired
-	public MongoDemoService(PersonRepository repository) {
-		this.repository = repository;
-	}
+    @Autowired
+    public MongoDemoService(PersonRepository repository) {
+        this.repository = repository;
+    }
 
-	public void doWork() {
+    public void doWork() {
 
-		repository.deleteAll();
+        repository.deleteAll();
 
-		Person person = new Person();
-		person.setName("tianyi");
-		person.setAge(25);
-		person = repository.save(person);
+        Person person = new Person();
+        person.setName("tianyi");
+        person.setAge(25);
+        person = repository.save(person);
 
-		List<Person> persons = repository.findByName("tianyi");
+        List<Person> persons = repository.findByName("tianyi");
 
-		System.out.println("查询结果数目:" + persons.size());
+        System.out.println("查询结果数目:" + persons.size());
 
-		persons.forEach(p -> {
-			System.out.println(p);
-		});
+        persons.forEach(p -> {
+            System.out.println(p);
+        });
 
 
-	}
+    }
 }

@@ -48,17 +48,17 @@ public class GlobalExceptionResolver extends SimpleMappingExceptionResolver {
                 if (statusCode != null) {
                     applyStatusCodeIfPossible(request, response, statusCode);
                 }
-                System.err.format("JSP格式返回%s",viewName);
+                System.err.format("JSP格式返回%s", viewName);
                 return getModelAndView(viewName, ex, request);
             } else {// JSON格式返回
                 try {
                     PrintWriter writer = response.getWriter();
-                    writer.write(JsonUtils.getFailure("服务器内部异常",-500));
+                    writer.write(JsonUtils.getFailure("服务器内部异常", -500));
                     writer.flush();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                System.err.format("JSON格式返回%s",viewName);
+                System.err.format("JSON格式返回%s", viewName);
                 return null;
             }
         } else {
@@ -67,11 +67,11 @@ public class GlobalExceptionResolver extends SimpleMappingExceptionResolver {
     }
 
     @PostConstruct
-    public void init(){
-       // 错误视图设置
-       Properties mappings =new Properties();
-       mappings.setProperty("java.lang.Exception","500");
-       setExceptionMappings(mappings);
+    public void init() {
+        // 错误视图设置
+        Properties mappings = new Properties();
+        mappings.setProperty("java.lang.Exception", "500");
+        setExceptionMappings(mappings);
     }
 
 }

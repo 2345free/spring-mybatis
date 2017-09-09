@@ -1,9 +1,8 @@
 package com.example.simples.sm.es.document;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
-
-import lombok.Data;
 
 
 /**
@@ -12,15 +11,15 @@ import lombok.Data;
 @Data
 @Document(indexName = "ecs.book", type = "book")
 public class Book {
-	@Id
-	private Long id;
+    @Id
+    private Long id;
 
-	private String name;
+    private String name;
 
-	private Long price;
+    private Long price;
 
-	@Override
-	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", price=" + price + "]";
-	}
+    @Override
+    public String toString() {
+        return "Book [id=" + id + ", name=" + name + ", price=" + price + "]";
+    }
 }
