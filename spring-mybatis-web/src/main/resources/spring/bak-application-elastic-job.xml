@@ -15,7 +15,7 @@
                    max-sleep-time-milliseconds="3000" max-retries="3"/>
 
     <!--configure job -->
-    <job:simple id="myElasticJob" class="com.example.simples.sm.job.MyElasticJob" registry-center-ref="regCenter"
+    <job:simple id="myElasticJob" class="com.example.simples.sm.web.job.MyElasticJob" registry-center-ref="regCenter"
                 cron="0/10 * * * * ?" sharding-total-count="3" sharding-item-parameters="0=A,1=B,2=C"/>
 
 
