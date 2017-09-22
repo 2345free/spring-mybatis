@@ -17,28 +17,18 @@ import java.util.List;
 
 /**
  * 测试基类
- * 
+ *
  * @author tianyi
  * @version 1.0.4
  */
 public class AbstractCanalClient {
-	
-    protected final static Logger logger             = LoggerFactory.getLogger(AbstractCanalClient.class);
-    protected static final String SEP                = SystemUtils.LINE_SEPARATOR;
-    protected static final String DATE_FORMAT        = "yyyy-MM-dd HH:mm:ss";
-    protected volatile boolean                running            = false;
-    protected Thread.UncaughtExceptionHandler handler            = new Thread.UncaughtExceptionHandler() {
 
-                                                                     public void uncaughtException(Thread t, Throwable e) {
-                                                                         logger.error("parse events has an error", e);
-                                                                     }
-                                                                 };
-    protected Thread thread             = null;
-    protected CanalConnector                  connector;
-    protected static String context_format     = null;
-    protected static String row_format         = null;
+    protected final static Logger logger = LoggerFactory.getLogger(AbstractCanalClient.class);
+    protected static final String SEP = SystemUtils.LINE_SEPARATOR;
+    protected static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    protected static String context_format = null;
+    protected static String row_format = null;
     protected static String transaction_format = null;
-    protected String destination;
 
     static {
         context_format = SEP + "****************************************************" + SEP;
@@ -48,22 +38,33 @@ public class AbstractCanalClient {
         context_format += "****************************************************" + SEP;
 
         row_format = SEP
-                     + "----------------> binlog[{}:{}] , name[{},{}] , eventType : {} , executeTime : {} , delay : {}ms"
-                     + SEP;
+                + "----------------> binlog[{}:{}] , name[{},{}] , eventType : {} , executeTime : {} , delay : {}ms"
+                + SEP;
 
         transaction_format = SEP + "================> binlog[{}:{}] , executeTime : {} , delay : {}ms" + SEP;
 
     }
-    
-    public AbstractCanalClient(){
-    	
+
+    protected volatile boolean running = false;
+    protected Thread.UncaughtExceptionHandler handler = new Thread.UncaughtExceptionHandler() {
+
+        public void uncaughtException(Thread t, Throwable e) {
+            logger.error("parse events has an error", e);
+        }
+    };
+    protected Thread thread = null;
+    protected CanalConnector connector;
+    protected String destination;
+
+    public AbstractCanalClient() {
+
     }
 
-    public AbstractCanalClient(String destination){
+    public AbstractCanalClient(String destination) {
         this(destination, null);
     }
 
-    public AbstractCanalClient(String destination, CanalConnector connector){
+    public AbstractCanalClient(String destination, CanalConnector connector) {
         this.destination = destination;
         this.connector = connector;
     }
@@ -110,10 +111,10 @@ public class AbstractCanalClient {
                     long batchId = message.getId();
                     int size = message.getEntries().size();
                     if (batchId == -1 || size == 0) {
-						try {
-							Thread.sleep(10000);
-						} catch (InterruptedException e) {
-						}
+                        try {
+                            Thread.sleep(10000);
+                        } catch (InterruptedException e) {
+                        }
                     } else {
                         // printSummary(message, batchId, size);
                         canalTask(message.getEntries());
@@ -132,7 +133,7 @@ public class AbstractCanalClient {
     }
 
     @SuppressWarnings("unused")
-	private void printSummary(Message message, long batchId, int size) {
+    private void printSummary(Message message, long batchId, int size) {
         long memsize = 0;
         for (Entry entry : message.getEntries()) {
             memsize += entry.getHeader().getEventLength();
@@ -146,8 +147,8 @@ public class AbstractCanalClient {
         }
 
         SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
-        logger.info(context_format, new Object[] { batchId, size, memsize, format.format(new Date()), startPosition,
-                endPosition });
+        logger.info(context_format, new Object[]{batchId, size, memsize, format.format(new Date()), startPosition,
+                endPosition});
     }
 
     protected String buildPositionForDump(Entry entry) {
@@ -155,7 +156,7 @@ public class AbstractCanalClient {
         Date date = new Date(time);
         SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
         return entry.getHeader().getLogfileName() + ":" + entry.getHeader().getLogfileOffset() + ":"
-               + entry.getHeader().getExecuteTime() + "(" + format.format(date) + ")";
+                + entry.getHeader().getExecuteTime() + "(" + format.format(date) + ")";
     }
 
     protected void canalTask(List<Entry> entrys) {
@@ -173,9 +174,9 @@ public class AbstractCanalClient {
                     }
                     // 打印事务头信息，执行的线程id，事务耗时
                     logger.info(transaction_format,
-                        new Object[] { entry.getHeader().getLogfileName(),
-                                String.valueOf(entry.getHeader().getLogfileOffset()),
-                                String.valueOf(entry.getHeader().getExecuteTime()), String.valueOf(delayTime) });
+                            new Object[]{entry.getHeader().getLogfileName(),
+                                    String.valueOf(entry.getHeader().getLogfileOffset()),
+                                    String.valueOf(entry.getHeader().getExecuteTime()), String.valueOf(delayTime)});
                     logger.info(" BEGIN ----> Thread id: {}", begin.getThreadId());
                 } else if (entry.getEntryType() == EntryType.TRANSACTIONEND) {
                     TransactionEnd end = null;
@@ -188,9 +189,9 @@ public class AbstractCanalClient {
                     logger.info("----------------\n");
                     logger.info(" END ----> transaction id: {}", end.getTransactionId());
                     logger.info(transaction_format,
-                        new Object[] { entry.getHeader().getLogfileName(),
-                                String.valueOf(entry.getHeader().getLogfileOffset()),
-                                String.valueOf(entry.getHeader().getExecuteTime()), String.valueOf(delayTime) });
+                            new Object[]{entry.getHeader().getLogfileName(),
+                                    String.valueOf(entry.getHeader().getLogfileOffset()),
+                                    String.valueOf(entry.getHeader().getExecuteTime()), String.valueOf(delayTime)});
                 }
 
                 continue;
@@ -207,25 +208,25 @@ public class AbstractCanalClient {
                 EventType eventType = rowChage.getEventType();
 
                 logger.info(row_format,
-                    new Object[] { entry.getHeader().getLogfileName(),
-                            String.valueOf(entry.getHeader().getLogfileOffset()), entry.getHeader().getSchemaName(),
-                            entry.getHeader().getTableName(), eventType,
-                            String.valueOf(entry.getHeader().getExecuteTime()), String.valueOf(delayTime) });
+                        new Object[]{entry.getHeader().getLogfileName(),
+                                String.valueOf(entry.getHeader().getLogfileOffset()), entry.getHeader().getSchemaName(),
+                                entry.getHeader().getTableName(), eventType,
+                                String.valueOf(entry.getHeader().getExecuteTime()), String.valueOf(delayTime)});
 
                 if (eventType == EventType.QUERY || rowChage.getIsDdl()) {
                     logger.info(" sql ----> " + rowChage.getSql() + SEP);
                     continue;
                 }
 
-            	for (RowData rowData : rowChage.getRowDatasList()) {
-            		if (eventType == EventType.DELETE) {
-            			printColumn(rowData.getBeforeColumnsList());
-            		} else if (eventType == EventType.INSERT) {
-            			printColumn(rowData.getAfterColumnsList());
-            		} else {
-            			printColumn(rowData.getAfterColumnsList());
-            		}
-            	}
+                for (RowData rowData : rowChage.getRowDatasList()) {
+                    if (eventType == EventType.DELETE) {
+                        printColumn(rowData.getBeforeColumnsList());
+                    } else if (eventType == EventType.INSERT) {
+                        printColumn(rowData.getAfterColumnsList());
+                    } else {
+                        printColumn(rowData.getAfterColumnsList());
+                    }
+                }
             }
         }
     }

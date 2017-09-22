@@ -15,21 +15,21 @@ import java.util.List;
 
 /**
  * 单机模式
- * 
+ *
  * @author tianyi
  * @version 1.0.4
  */
 @NoArgsConstructor
 public class GeneralCanalClient extends AbstractCanalClient {
-	
-	@Value("${canal.server}")
-	private String server;
 
-	private String destination = "example";
-	
-    public GeneralCanalClient(String destination){
+    @Value("${canal.server}")
+    private String server;
+
+    private String destination = "example";
+
+    public GeneralCanalClient(String destination) {
         super(destination);
-        this.destination=destination;
+        this.destination = destination;
     }
 
     public void init() {
@@ -42,11 +42,11 @@ public class GeneralCanalClient extends AbstractCanalClient {
         client.setConnector(connector);
         client.start();
         System.err.println("Canal Client running...");
-        
+
         Runtime.getRuntime().addShutdownHook(new Thread() {
 
             @Override
-			public void run() {
+            public void run() {
                 try {
                     logger.info("## stop the canal client");
                     client.stop();
@@ -59,7 +59,7 @@ public class GeneralCanalClient extends AbstractCanalClient {
 
         });
     }
-    
+
     @Override
     protected void canalTask(List<Entry> entrys) {
         for (Entry entry : entrys) {
@@ -79,46 +79,46 @@ public class GeneralCanalClient extends AbstractCanalClient {
                 }
 
                 String tableName = entry.getHeader().getTableName();
-                
-                if("t_user".equalsIgnoreCase(tableName)){
-                	
-                	// 业务代码
 
-            		
-            		/**
-                	for (RowData rowData : rowChage.getRowDatasList()) {
-                		if (eventType == EventType.DELETE) {
-                			// 删除内存中map中的销售平台信息
-//            				Iterator<String> iterator = OrderConstants.storeMap.keySet().iterator();
-//            				while (iterator.hasNext()) {
-//            				    String key = (String) iterator.next();
-//            				    if ("1".equals(key) || "2".equals(key)) {
-//            				       iterator.remove();
-//            				       OrderConstants.storeMap.remove(key);
-//            				     }
-//            				 }
-                			
-            				logger.info("删除tb_ms_store表记录");
-                			printColumn(rowData.getBeforeColumnsList());
-                		} else if (eventType == EventType.INSERT) {
-                			// 增加内存中map中的销售平台信息
-//                			TbMsStoreVO tbMsStoreVO=new TbMsStoreVO();
-//                			OrderConstants.storeMap.put("", tbMsStoreVO);
-                			
-                			logger.info("增加tb_ms_store表记录");
-                			printColumn(rowData.getAfterColumnsList());
-                		} else {
-                			// 更新内存中map中的销售平台信息
-//                			TbMsStoreVO tbMsStoreVO=new TbMsStoreVO();
-//                			OrderConstants.storeMap.put("", tbMsStoreVO);
-                			
-                			logger.info("更新tb_ms_store表记录");
-                			printColumn(rowData.getAfterColumnsList());
-                		}
-                	}
-                	*/
+                if ("t_user".equalsIgnoreCase(tableName)) {
+
+                    // 业务代码
+
+
+                    /**
+                     for (RowData rowData : rowChage.getRowDatasList()) {
+                     if (eventType == EventType.DELETE) {
+                     // 删除内存中map中的销售平台信息
+                     //            				Iterator<String> iterator = OrderConstants.storeMap.keySet().iterator();
+                     //            				while (iterator.hasNext()) {
+                     //            				    String key = (String) iterator.next();
+                     //            				    if ("1".equals(key) || "2".equals(key)) {
+                     //            				       iterator.remove();
+                     //            				       OrderConstants.storeMap.remove(key);
+                     //            				     }
+                     //            				 }
+
+                     logger.info("删除tb_ms_store表记录");
+                     printColumn(rowData.getBeforeColumnsList());
+                     } else if (eventType == EventType.INSERT) {
+                     // 增加内存中map中的销售平台信息
+                     //                			TbMsStoreVO tbMsStoreVO=new TbMsStoreVO();
+                     //                			OrderConstants.storeMap.put("", tbMsStoreVO);
+
+                     logger.info("增加tb_ms_store表记录");
+                     printColumn(rowData.getAfterColumnsList());
+                     } else {
+                     // 更新内存中map中的销售平台信息
+                     //                			TbMsStoreVO tbMsStoreVO=new TbMsStoreVO();
+                     //                			OrderConstants.storeMap.put("", tbMsStoreVO);
+
+                     logger.info("更新tb_ms_store表记录");
+                     printColumn(rowData.getAfterColumnsList());
+                     }
+                     }
+                     */
                 }
-                
+
             }
         }
     }

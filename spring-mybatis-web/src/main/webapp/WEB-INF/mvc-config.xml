@@ -69,12 +69,12 @@
 
     <!-- regular spring resolver -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="100000000" />
-        <property name="maxInMemorySize" value="100000000" />
+        <property name="maxUploadSize" value="100000000"/>
+        <property name="maxInMemorySize" value="100000000"/>
     </bean>
 
     <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" id="jsonView">
-        <property name="contentType" value="application/json;charset=UTF-8" />
+        <property name="contentType" value="application/json;charset=UTF-8"/>
     </bean>
 
     <mvc:resources mapping="/static/**" location="/WEB-INF/static/"></mvc:resources>

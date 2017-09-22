@@ -52,6 +52,7 @@ public class GlobalExceptionResolver extends SimpleMappingExceptionResolver {
                 return getModelAndView(viewName, ex, request);
             } else {// JSON格式返回
                 try {
+                    response.addHeader("Content-Type", "application/json");
                     PrintWriter writer = response.getWriter();
                     writer.write(JsonUtils.getFailure("服务器内部异常", -500));
                     writer.flush();

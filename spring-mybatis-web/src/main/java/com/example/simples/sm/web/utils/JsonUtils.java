@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 
 /**
  * @author tianyi
- *         json工具类
+ * json工具类
  */
 public class JsonUtils {
 
