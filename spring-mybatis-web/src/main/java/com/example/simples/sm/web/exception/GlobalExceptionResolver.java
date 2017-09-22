@@ -60,7 +60,7 @@ public class GlobalExceptionResolver extends SimpleMappingExceptionResolver {
                     e.printStackTrace();
                 }
                 System.err.format("JSON格式返回%s", viewName);
-                return null;
+                return new ModelAndView();
             }
         } else {
             return null;
