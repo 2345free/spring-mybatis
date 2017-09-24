@@ -1,7 +1,8 @@
-package com.example.simples.sm.web.config;
+package com.example.simples.sm.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 @Configuration
+@ComponentScan
 public class SpringMvConfig extends WebMvcConfigurationSupport {
 
     @Value("${canal.destination}")
@@ -26,7 +28,7 @@ public class SpringMvConfig extends WebMvcConfigurationSupport {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addRedirectViewController("/", "/druid");
+        registry.addRedirectViewController("/", "/swagger-ui.html");
     }
 
     /**
