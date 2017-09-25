@@ -18,6 +18,7 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger.web.UiConfiguration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -49,6 +50,19 @@ public class SwaggerConfig {
                 .termsOfServiceUrl("http://localhost:8080/swagger-ui.html") // 将“url”换成自己的ip:port
                 .version("1.1.0")
                 .build();
+    }
+
+    @Bean
+    public UiConfiguration getUiConfig() {
+        return new UiConfiguration(
+                null,// url,暂不用
+                "none",       // docExpansion          => none | list
+                "alpha",      // apiSorter             => alpha
+                "schema",     // defaultModelRendering => schema
+                UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS,
+                false,        // enableJsonEditor      => true | false
+                true,
+                2000L);        // showRequestHeaders    => true | false
     }
 
 }
