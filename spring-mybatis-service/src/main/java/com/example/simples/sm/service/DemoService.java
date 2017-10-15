@@ -1,4 +1,4 @@
-package com.example.simples.sm.web.service;
+package com.example.simples.sm.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
 

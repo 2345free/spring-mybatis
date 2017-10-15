@@ -1,6 +1,6 @@
 package com.example.samples.sm.service.impl;
 
-import com.example.simples.sm.web.service.DemoService;
+import com.example.simples.sm.service.DemoService;
 import org.springframework.stereotype.Service;
 
 @Service("demoService")
