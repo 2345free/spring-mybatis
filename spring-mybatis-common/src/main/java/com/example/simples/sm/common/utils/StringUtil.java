@@ -1,4 +1,4 @@
-package com.example.simples.sm.web.common.utils;
+package com.example.simples.sm.common.utils;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DateUtil;

@@ -1,4 +1,4 @@
-package com.example.simples.sm.web.common.http;
+package com.example.simples.sm.common.http;
 
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;

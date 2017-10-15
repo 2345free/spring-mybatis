@@ -1,4 +1,4 @@
-package com.example.simples.sm.web.dao;
+package com.example.simples.sm.dao;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;

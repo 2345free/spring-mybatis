@@ -1,4 +1,4 @@
-package com.example.simples.sm.web.common.utils;
+package com.example.simples.sm.common.utils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

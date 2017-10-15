@@ -22,7 +22,7 @@
         -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
         <!-- 3.2.2版本新特性，markerInterface可以起到mappers配置的作用，详细情况需要看Marker接口类 -->
-        <property name="markerInterface" value="com.example.simples.sm.web.dao.MyMapper"/>
+        <property name="markerInterface" value="com.example.simples.sm.dao.MyMapper"/>
     </bean>
 
 </beans>

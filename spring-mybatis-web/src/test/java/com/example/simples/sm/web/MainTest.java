@@ -1,6 +1,6 @@
 package com.example.simples.sm.web;
 
-import com.example.simples.sm.web.common.http.PoolingHttpClient;
+import com.example.simples.sm.common.http.PoolingHttpClient;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;

@@ -5,7 +5,7 @@
  *
  * (Copyright ⓒ 2012 Samsung Heavy Industries Co., Ltd. All Rights Reserved| Confidential)
  */
-package com.example.simples.sm.web.common.utils;
+package com.example.simples.sm.common.utils;
 
 import java.util.HashSet;
 import java.util.Random;

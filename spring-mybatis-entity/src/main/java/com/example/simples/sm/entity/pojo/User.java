@@ -1,4 +1,4 @@
-package com.example.simples.sm.web.entity.pojo;
+package com.example.simples.sm.entity.pojo;
 
 import lombok.Data;
 
