@@ -9,8 +9,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
@@ -21,7 +23,7 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan
-public class SpringMvConfig extends WebMvcConfigurerAdapter {
+public class SpringMvConfig extends WebMvcConfigurationSupport {
 
     @Value("${canal.destination}")
     private String destination;
@@ -31,6 +33,12 @@ public class SpringMvConfig extends WebMvcConfigurerAdapter {
         ClassPathResource resource = new ClassPathResource("application.properties");
         Properties properties = PropertiesLoaderUtils.loadProperties(resource);
         return properties;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/static/");
+        super.addResourceHandlers(registry);
     }
 
     @Override
@@ -46,6 +54,12 @@ public class SpringMvConfig extends WebMvcConfigurerAdapter {
         SerializeConfig.getGlobalInstance()
                 .propertyNamingStrategy = PropertyNamingStrategy.CamelCase; // 下划线规则: SnakeCase
         return fastJsonConfig;
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate;
     }
 
     /* **************************************************************** */

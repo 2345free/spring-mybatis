@@ -82,7 +82,6 @@
         <property name="contentType" value="application/json;charset=UTF-8"/>
     </bean>
 
-    <mvc:resources mapping="/**" location="/WEB-INF/static/"></mvc:resources>
     <!-- swagger -->
     <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
     <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>

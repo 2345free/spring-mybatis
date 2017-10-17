@@ -17,7 +17,7 @@ public class Tests {
 
 
     public static void main(String[] args) throws Exception {
-        String baseUri = "http://localhost";
+        String baseUri = "http://localhost:8080";
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(baseUri + "/proto/w");
 
@@ -47,11 +47,8 @@ public class Tests {
             System.out.println(response.getStatusLine());
             HttpEntity entity = response.getEntity();
 
-            ByteArrayOutputStream buf = new ByteArrayOutputStream();
-            entity.writeTo(buf);
-            System.out.println(new String(buf.toByteArray()) + "#################");
-            Person person2 = Person.parseFrom(buf.toByteArray());
-            System.out.println(person2);
+            Person person = Person.parseFrom(entity.getContent());
+            System.out.println(person);
         } finally {
             response.close();
         }
