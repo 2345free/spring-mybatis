@@ -54,7 +54,7 @@ public class GlobalExceptionResolver extends SimpleMappingExceptionResolver {
                 try {
                     response.addHeader("Content-Type", "application/json");
                     PrintWriter writer = response.getWriter();
-                    writer.write(JsonUtils.getFailure("服务器内部异常", -500));
+                    writer.write(JsonUtils.getFailure("服务器内部异常", 500));
                     writer.flush();
                 } catch (IOException e) {
                     e.printStackTrace();

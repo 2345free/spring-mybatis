@@ -68,7 +68,7 @@
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
-        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="prefix" value="/WEB-INF/view/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
@@ -85,6 +85,9 @@
     <!-- swagger -->
     <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
     <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+
+    <!-- mvc -->
+    <mvc:resources mapping="/error/**" location="/WEB-INF/views/error/" />
 
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
