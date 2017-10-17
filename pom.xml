@@ -45,6 +45,11 @@
 
         <elastic-job.version>2.1.5</elastic-job.version>
         <curator.version>3.3.0</curator.version>
+        <thymeleaf.version>3.0.7.RELEASE</thymeleaf.version>
+
+        <!-- protobuf -->
+        <grpc.version>1.7.0</grpc.version>
+        <protobuf.version>2.6.1</protobuf.version>
 
     </properties>
 

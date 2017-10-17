@@ -11,11 +11,6 @@
     <artifactId>spring-mybatis-web</artifactId>
     <packaging>war</packaging>
 
-    <properties>
-        <grpc.version>1.7.0</grpc.version>
-        <protobuf.version>2.6.1</protobuf.version>
-    </properties>
-
     <dependencies>
 
         <!-- project modules dependency -->

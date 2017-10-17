@@ -15,11 +15,11 @@
 
 </HEAD>
 <BODY>
-<TABLE height=500 cellSpacing=0 cellPadding=0 width=500 align=center
-       background=/static/404.gif border=0>
+<TABLE height="500" cellSpacing="0" cellPadding="0" width="500" align="center"
+       background="/404.gif" border="0">
     <TBODY>
     <TR>
-        <TD height=330>&nbsp;</TD>
+        <TD height="330">&nbsp;</TD>
     </TR>
     <TR>
         <td valign="top">

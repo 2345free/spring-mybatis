@@ -24,24 +24,27 @@
                     </list>
                 </property>
             </bean>
-            <!-- <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
-				<property name="supportedMediaTypes">
-					<list>
-						<value>application/json</value>
-					</list>
-				</property>
-			</bean> -->
+            <!-- fastjson message convert -->
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json</value>
+                    </list>
+                </property>
+                <property name="fastJsonConfig" ref="fastJsonConfig"/>
+            </bean>
+            <!--
             <bean
-                    class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="objectMapper">
                     <bean class="com.fasterxml.jackson.databind.ObjectMapper">
                         <property name="propertyNamingStrategy">
-                            <!-- 下划线转驼峰命名策略 -->
-                            <bean class="com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy"/>
+                            &lt;!&ndash; 下划线转驼峰命名策略 &ndash;&gt;
+                            <bean class="com.fasterxml.jackson.databind.PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy" />
                         </property>
-                        <!-- 不解析对象属为null -->
-                        <property name="serializationInclusion" value="NON_NULL"/>
-                        <!-- josn全局日期格式 -->
+                        &lt;!&ndash; 不解析对象属为null &ndash;&gt;
+                        <property name="serializationInclusion" value="NON_NULL" />
+                        &lt;!&ndash; josn全局日期格式 &ndash;&gt;
                         <property name="dateFormat">
                             <bean class="java.text.SimpleDateFormat">
                                 <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
@@ -55,6 +58,7 @@
                     </list>
                 </property>
             </bean>
+            -->
         </mvc:message-converters>
     </mvc:annotation-driven>
 
@@ -78,7 +82,7 @@
         <property name="contentType" value="application/json;charset=UTF-8"/>
     </bean>
 
-    <mvc:resources mapping="/static/**" location="/WEB-INF/static/"></mvc:resources>
+    <mvc:resources mapping="/**" location="/WEB-INF/static/"></mvc:resources>
     <!-- swagger -->
     <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
     <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
