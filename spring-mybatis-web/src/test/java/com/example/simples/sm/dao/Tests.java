@@ -1,7 +1,7 @@
 package com.example.simples.sm.dao;
 
-import com.example.simples.sm.web.BaseTest;
 import com.example.simples.sm.entity.pojo.User;
+import com.example.simples.sm.web.BaseTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

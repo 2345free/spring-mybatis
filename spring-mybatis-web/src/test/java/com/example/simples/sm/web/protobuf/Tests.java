@@ -1,5 +1,6 @@
 package com.example.simples.sm.web.protobuf;
 
+import com.example.simples.sm.entity.proto.AddressBookProtos.Person;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -7,10 +8,8 @@ import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
-import com.example.simples.sm.entity.proto.AddressBookProtos.Person;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class Tests {

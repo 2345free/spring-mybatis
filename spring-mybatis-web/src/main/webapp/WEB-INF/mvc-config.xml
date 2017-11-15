@@ -87,7 +87,7 @@
     <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
     <!-- mvc -->
-    <mvc:resources mapping="/error/**" location="/WEB-INF/views/error/" />
+    <mvc:resources mapping="/error/**" location="/WEB-INF/views/error/"/>
 
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
