@@ -7,6 +7,7 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository;
 
 import java.net.InetAddress;
@@ -16,7 +17,7 @@ import java.net.UnknownHostException;
  * @author tianyi
  */
 @Configuration
-//@EnableElasticsearchRepositories(basePackages = {"com.example.simples.sm.web.es.repository"})
+@EnableElasticsearchRepositories(basePackages = {"com.example.simples.sm.web.es.repository"})
 public class EsConfig {
 
     @Bean
@@ -37,14 +38,14 @@ public class EsConfig {
     }
 
     @Bean
-    public ElasticsearchTemplate esTemplate() {
+    public ElasticsearchTemplate elasticsearchTemplate() {
         ElasticsearchTemplate template = new ElasticsearchTemplate(transportClient());
         return template;
     }
 
     @Bean
     public SimpleElasticsearchRepository simpleEsRepos() {
-        SimpleElasticsearchRepository repository = new SimpleElasticsearchRepository(esTemplate());
+        SimpleElasticsearchRepository repository = new SimpleElasticsearchRepository(elasticsearchTemplate());
         return repository;
     }
 

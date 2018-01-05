@@ -16,7 +16,7 @@
     <!--client-transport-sniff表示是否进行自动嗅探ES集群中节点-->
     <elasticsearch:transport-client id="client"
                                     cluster-nodes="cluster:9300,cluster:9301,cluster:9302"
-                                    cluster-name="logging-stage"
+                                    cluster-name="b5c"
                                     client-transport-sniff="true"/>
 
     <bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
