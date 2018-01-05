@@ -21,6 +21,7 @@
 
         <!-- Spring -->
         <spring-framework.version>5.0.2.RELEASE</spring-framework.version>
+        <spring-data-elasticsearch.version>3.0.0.M4</spring-data-elasticsearch.version>
 
         <!-- Hibernate / JPA -->
         <hibernate.version>4.2.1.Final</hibernate.version>

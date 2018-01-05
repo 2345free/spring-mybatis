@@ -209,7 +209,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
-            <version>3.0.0.M4</version>
+            <version>${spring-data-elasticsearch.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.google.guava</groupId>
