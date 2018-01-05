@@ -1,9 +1,18 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: tianyi
+  Date: 2018/1/5
+  Time: 14:21
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE>
 <HTML>
 <HEAD>
-    <TITLE>遇到错误了</TITLE>
-    <META http-equiv=Content-Type content="text/html; charset=GBK">
-    <STYLE type=text/css>
+    <TITLE>500错误</TITLE>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <STYLE type="text/css">
         .font14 {
             FONT-SIZE: 14px
         }
@@ -24,7 +33,7 @@
     <TR>
         <td valign="top">
             <div class="font14" align="center">
-                <strong>服务器出错了</strong>
+                <strong>服务器内部错误</strong>
             </div>
         </td>
     </TR>

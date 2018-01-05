@@ -42,7 +42,7 @@ public class RedisConfig {
             String[] node = server.split(":");
             nodes.add(new HostAndPort(node[0], Integer.parseInt(node[1])));
         }
-        JedisCluster jedisCluster = new JedisCluster(nodes);
+        JedisCluster jedisCluster = new JedisCluster(nodes, jedisPoolConfig());
         System.err.println(String.format("jedisCluster [%s] has been initialized...", this.servers));
         return jedisCluster;
     }

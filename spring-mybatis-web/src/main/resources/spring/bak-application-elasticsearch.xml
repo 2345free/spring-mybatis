@@ -10,17 +10,17 @@
 
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
-    <elasticsearch:repositories base-package="com.example.simples.sm.es.repositytory"/>
+    <elasticsearch:repositories base-package="com.example.simples.sm.web.es.repository"/>
 
     <!--通过transport方式与ES集群通信,不需要在本地创建节点-->
     <!--client-transport-sniff表示是否进行自动嗅探ES集群中节点-->
-    <elasticsearch:transport-client id="es.transport.client"
-                                    cluster-nodes="192.168.3.11:9300"
-                                    cluster-name="my-application"
-                                    client-transport-sniff="false"/>
+    <elasticsearch:transport-client id="client"
+                                    cluster-nodes="cluster:9300,cluster:9301,cluster:9302"
+                                    cluster-name="logging-stage"
+                                    client-transport-sniff="true"/>
 
     <bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
-        <constructor-arg name="client" ref="es.transport.client"/>
+        <constructor-arg name="client" ref="client"/>
     </bean>
 
     <bean id="simpleElasticsearchRepository"

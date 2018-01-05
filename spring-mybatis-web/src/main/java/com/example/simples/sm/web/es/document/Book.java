@@ -4,22 +4,25 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
+import java.util.Date;
+
 
 /**
  * @author tianyi
  */
 @Data
-@Document(indexName = "ecs.book", type = "book")
+@Document(indexName = "book", type = "novel", shards = 2, replicas = 1)
 public class Book {
+
     @Id
-    private Long id;
+    private String id;
 
-    private String name;
+    private Long wordCount;
 
-    private Long price;
+    private String title;
 
-    @Override
-    public String toString() {
-        return "Book [id=" + id + ", name=" + name + ", price=" + price + "]";
-    }
+    private String author;
+
+    private Date publishDate;
+
 }
