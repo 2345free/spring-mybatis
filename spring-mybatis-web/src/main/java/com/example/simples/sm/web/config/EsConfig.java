@@ -20,17 +20,21 @@ import java.net.UnknownHostException;
 @EnableElasticsearchRepositories(basePackages = {"com.example.simples.sm.web.es.repository"})
 public class EsConfig {
 
-    @Bean
+    /**
+     * 至少添加一个IP，如果设置了"client.transport.sniff"= true 一个就够了，因为开启了自动嗅探配置
+     *
+     * @return
+     */
+    @Bean(destroyMethod = "close")
     public TransportClient transportClient() {
         Settings settings = Settings.builder()
                 .put("cluster.name", "b5c")
-                .put("client.transport.sniff", false).build();
+                .put("client.transport.sniff", true).build();
         TransportClient client = new PreBuiltTransportClient(settings);
         try {
-            InetSocketTransportAddress master = new InetSocketTransportAddress(InetAddress.getByName("cluster"), 9300);
-            InetSocketTransportAddress slave1 = new InetSocketTransportAddress(InetAddress.getByName("cluster"), 9301);
-            InetSocketTransportAddress slave2 = new InetSocketTransportAddress(InetAddress.getByName("cluster"), 9302);
-            client.addTransportAddresses(master, slave1, slave2);
+            client.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("cluster"), 9300));
+//            client.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("cluster"), 9301));
+//            client.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("cluster"), 9302));
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }

@@ -28,7 +28,7 @@ public class RabbitConfig {
     @Value("${rabbit.addrssses}")
     private String addrssses;
 
-    @Bean(name = "rabbitConnectionFactory")
+    @Bean(destroyMethod = "destroy")
     public ConnectionFactory rabbitConnectionFactory() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
         connectionFactory.setAddresses(addrssses);

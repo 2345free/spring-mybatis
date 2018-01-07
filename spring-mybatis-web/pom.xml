@@ -314,6 +314,7 @@
 
     </dependencies>
 
+    <!-- maven仓库配置 -->
     <repositories>
         <repository>
             <id>spring-libs-snapshot</id>
@@ -324,6 +325,11 @@
             <id>spring-libs-milestone</id>
             <name>Spring Snapshot Repository</name>
             <url>http://repo.spring.io/libs-milestone</url>
+        </repository>
+        <repository>
+            <id>spring-libs-release</id>
+            <name>Spring Snapshot Repository</name>
+            <url>http://repo.spring.io/libs-release</url>
         </repository>
     </repositories>
 
